@@ -5,7 +5,7 @@ import { CartContext } from '../context/CartContext';
 
 function CartComponent(){
 
-    const {items} = useContext(CartContext);
+    const {itemsInCart} = useContext(CartContext);
 
     return <div className='d-flex justify-content-end w-25'>
                 
@@ -13,7 +13,7 @@ function CartComponent(){
                 <img src={bag} className="logo react" alt="React logo" />
                 </div>
 
-                <span className="badge badge-sm indicator-item bg-rose-600 text-neutral-50	">{items} </span>
+                <span className="badge badge-sm indicator-item bg-rose-600 text-neutral-50	">{itemsInCart} </span>
         
 
                 
