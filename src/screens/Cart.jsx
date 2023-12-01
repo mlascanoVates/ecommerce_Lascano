@@ -1,34 +1,34 @@
+import React, { useContext, useEffect, useRef } from "react";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { useContext, useRef, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
+import Form from "../components/Form";
 
-import Form from "./Form";
+function Cart() {
+  const {cart, cartItems, fetchCartItems, emptyCart  } = useContext(CartContext);
 
-//enviar informacion a Firebase
-//producto del carro
-//información del usuario
-function Cart(){
-
-  const {cart, cartItems, fetchCartItems, emptyCart, removeItem } = useContext(CartContext);
-
+  console.log(cart);
 
   useEffect(()=> {
     if(cart.length > 0) {
       fetchCartItems()
     }
-  }, [])
+  }, [cart]) 
 
   return (
     <div>
-      {cartItems?.map(item => (
+  {/*     {cartItems?.map(item => (
         <div className="flex items-center justify-center">
         <p>{item.name}</p>
-        <button onClick={()=> removeItem(item.id)}>🗑️</button>
+{/*         <img src={item.url} alt="" />
+         {/* <button onClick={()=> removeItem(item.id)}>🗑️</button> 
         </div>
-      ))}
+      ))} */}
+
+      {cartItems?.map(item => <p>{item.name}</p>)}
       <button onClick={emptyCart}>Vaciar carrito</button>
       <Form />
     </div>
   );
-  }
+}
+
 export default Cart;

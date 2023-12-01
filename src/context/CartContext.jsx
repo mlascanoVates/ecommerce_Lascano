@@ -1,4 +1,4 @@
-
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
 
 //Creamos el contexto
@@ -6,6 +6,7 @@ export const CartContext = createContext();
 
 //Creamos el provider para poder proveer el contexto a la aplicación
 export function CartProvider({ children }) {
+  //Recuperamos datos del local storage
 
   const storedItems = JSON.parse(localStorage.getItem("cartItems"));
   const initialItems = storedItems ? storedItems : [];
@@ -47,8 +48,12 @@ export function CartProvider({ children }) {
         const res = await getDoc(itemRef);
 
         if (res.exists()) {
+          //const getQuantity = cart.find(item=> item.id === res.id)
+
           return { id: res.id, quantity: item.quantity, ...res.data() };
         }
+
+        // throw New Error`
       });
 
       const itemsData = await Promise.all(promises);
@@ -73,6 +78,7 @@ export function CartProvider({ children }) {
     setCartItems(filteredCartItems)
 
   }
+
   return (
     <CartContext.Provider
       value={{
