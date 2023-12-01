@@ -1,11 +1,14 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { CartContext } from "../context/CartContext";
 
 //enviar informacion a Firebase
 //producto del carro
 //información del usuario
 function Cart(){
+const {cartItem}= useContext(CartContext);
 //campo nombre, email
+console.log(cartItem);
 
 const userNameRef = useRef(null);
 const userEmailRef = useRef(null);

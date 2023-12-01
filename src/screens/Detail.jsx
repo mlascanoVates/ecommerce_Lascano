@@ -33,7 +33,7 @@ function Detail(){
                 <h3>{item.name}</h3>
                 <img src={item.url} alt={item.name} width={400}/>
                 <div>
-                    <ItemCounter/>
+                    <ItemCounter id={item.id}/>
                 </div>
             </div>
 

@@ -10,21 +10,28 @@ export function CartProvider({ children }) {
   //Recuperamos datos del local storage
     const storedItems= JSON.parse(localStorage.getItem('cartItems'));    
     //valor inicial del carrito
-    const initialItems= storedItems? storedItems : 0;
+    const initialItems= storedItems? storedItems : [];
 
-    const [items, setItems] = useState(initialItems);
+    const [cartItems, setCartItems] = useState(initialItems);
 
     //guardar cantidad de items en local storages
     useEffect(()=>{
-        const parseItems = JSON.stringify(items);
+        const parseItems = JSON.stringify(cartItems);
         localStorage.setItem('cartItems', parseItems);
-    },[items])
+    },[cartItems])
+    
+    //setea el carrito
+    const addItem = (idProduct, quantity)=>{
+      setCartItems([...cartItems, {id: idProduct, cantidad: quantity}]);
+    }
+
 
   return (
     <CartContext.Provider
       value={{
-        items,
-        setItems
+        cartItems,
+        setCartItems,
+        addItem
       }}
     >
       {children}
