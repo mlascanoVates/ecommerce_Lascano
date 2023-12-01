@@ -1,4 +1,7 @@
-# React + Vite
+# Ecommerce La Rose
+
+Alumna: Lascano, Maria Emilia  
+Curso: React Intermedio - Vates
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
