@@ -47,12 +47,8 @@ export function CartProvider({ children }) {
         const res = await getDoc(itemRef);
 
         if (res.exists()) {
-          //const getQuantity = cart.find(item=> item.id === res.id)
-
           return { id: res.id, quantity: item.quantity, ...res.data() };
         }
-
-        // throw New Error`
       });
 
       const itemsData = await Promise.all(promises);

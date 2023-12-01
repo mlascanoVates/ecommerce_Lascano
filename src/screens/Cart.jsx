@@ -1,6 +1,7 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
+
 import Form from "./Form";
 
 //enviar informacion a Firebase
@@ -8,14 +9,26 @@ import Form from "./Form";
 //información del usuario
 function Cart(){
 
+  const {cart, cartItems, fetchCartItems, emptyCart, removeItem } = useContext(CartContext);
 
-    return (
 
-      <div  className='min-h-screen'>
-        <Form/>
-      </div>
+  useEffect(()=> {
+    if(cart.length > 0) {
+      fetchCartItems()
+    }
+  }, [])
 
-    )
-}
-
+  return (
+    <div>
+      {cartItems?.map(item => (
+        <div className="flex items-center justify-center">
+        <p>{item.name}</p>
+        <button onClick={()=> removeItem(item.id)}>🗑️</button>
+        </div>
+      ))}
+      <button onClick={emptyCart}>Vaciar carrito</button>
+      <Form />
+    </div>
+  );
+  }
 export default Cart;
