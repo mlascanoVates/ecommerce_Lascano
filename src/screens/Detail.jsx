@@ -29,10 +29,15 @@ function Detail(){
  
 
 
-    return <div className='min-h-screen'>DETALLE PRODUCTO
-                <h3>{item.name}</h3>
-                <img src={item.url} alt={item.name} width={400}/>
+    return <div className='grid grid-cols-2 min-h-screen '>
+                <div >
+                   
+                    <img src={item.url} alt={item.name} width={400}/>
+                </div>
+              
                 <div>
+                    <h3 >{item.name}</h3>
+                    <p>{item.description}</p>
                     <ItemCounter id={item.id}/>
                 </div>
             </div>

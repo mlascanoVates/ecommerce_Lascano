@@ -19,7 +19,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+.details{
+        
+    z-index: 1000;
+  
+}
 /* 
 a {
   font-weight: 500;

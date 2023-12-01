@@ -2,9 +2,20 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
 import Logo from '../assets/logo_laRose.jpeg'
 import CartComponent from '../components/CartComponent'
-
+import { useEffect, useState } from 'react'
 
 function NavBar(){
+  /*   const [showMenu, setShowMenu] = useState(false);
+
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+    };
+
+    useEffect(() => {
+        setShowMenu(!showMenu);
+    
+    },[showMenu])
+ */
     return( 
     <div className="navbar bg-black flex  justify-between text-white">
        
@@ -16,10 +27,10 @@ function NavBar(){
                 <div className=" navbar-center  lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             <li><NavLink to='/' className={({isActive })=>(isActive ? " underline decoration-[3px]" : "")}>Home</NavLink></li>
-                            <li>
-                                <details>
-                                <summary>Make Up</summary>
-                                <ul className="menu xl:menu-horizontal lg:min-w-max bg-base-200  ">
+                            <li >
+                                <details className='details'>
+                                <summary  >Make Up</summary>
+                                <ul className="menu xl:menu-horizontal lg:min-w-max bg-base-200 " >
                                     <li><NavLink to='categoria/labiales' >Labios</NavLink></li>
                                     <li><NavLink to='categoria/ojos'>Ojos</NavLink></li>
                                     <li><NavLink to='categoria/rostro'>Rostro</NavLink></li>

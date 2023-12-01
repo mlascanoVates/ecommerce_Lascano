@@ -33,24 +33,25 @@ function ItemCounter({ id }) {
     };
   
     return (
-      <div className="flex flex-col gap-6 justify-center">
+      <div className="flex flex-col justify-center">
         <form onSubmit={handleSubmit} action="">
-          <div className="flex gap-2">
+          <div className="flex flex-col justify-center">
         
             <input
               type="number"
               min="0"
               value={counter}
               onChange={handleInputChange}
-              className="bg-white text-black border-2 border-solid border-gray-400 rounded-md h-10 w-20 text-center"
+              className=" self-center bg-white text-black border-2 border-solid border-gray-400 rounded-md h-10 w-20 text-center"
             />
             <button type="submit" onClick={handleAddCounter}>
               Añadir al carrito
             </button>
-          </div>
+        
           <button>
             <Link to="/cart">Finaliza compra</Link>
           </button>
+          </div>
         </form>
       </div>
     );
