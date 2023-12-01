@@ -2,6 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import {getFirestore, getDocs, collection, doc, getDoc, query, where, limit} from 'firebase/firestore'
 import { Link } from "react-router-dom";
+import ImagenRostro from '../assets/rostro3.jpg'
+import ImagenLabios from '../assets/labiales2.jpg'
+import ImagenOjos from '../assets/ojos.jpg'
+import ImagenSkin from '../assets/skin2.jpg'
+
 
 
 function Home(){
@@ -72,11 +77,14 @@ function Home(){
     },[]) */
 
     //traer documento si existe
+
+
+
     useEffect(()=>{
 
         const db= getFirestore()
         //segundo parametro nombre de coleccion
-        const queryFilter = query(collection(db,'items'),where('categoria', '==', 'labiales'))
+        const queryFilter = query(collection(db,'items'),where('destacado', '==', true))
         
             
         //devulve una promesa
@@ -103,6 +111,14 @@ function Home(){
            {/*  <img src={item.url}  alt=""  width={200}/>
            */}
 
+           <div className="grid grid-cols-2 gap-0 bg-black min-h-min">
+            <Link to='/categoria/labiales'><img src={ImagenLabios} alt="labiales"  className="w-full h-full object-cover"/></Link>
+            <Link to='/categoria/rostro'><img src={ImagenRostro} alt="rostro" className="w-full h-full object-cover" /></Link>
+            <Link to='/categoria/ojos'><img src={ImagenOjos} alt="ojos"  className="w-full h-full object-cover"/></Link>
+            <Link to='/categoria/skin'><img src={ImagenSkin} alt="skincare" className="w-full h-full object-cover"/></Link>
+           </div>
+
+           <h3>DESTACADOS DE LA SEMANA</h3>
            {loading?(
             <span className="loading loading-ring loading-lg"></span>
             
