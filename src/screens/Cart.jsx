@@ -32,7 +32,7 @@ const handleSubmit = (e) => {
 
     return (
 
-      <div>
+      <div  className='min-h-screen'>
         <form onSubmit={handleSubmit }> 
           <label className="form-control w-full max-w-xs  ">
             <div className="label">

@@ -1,7 +1,7 @@
 function Contact(){
-    return <div>Contacto</div>
+    return <div  className='min-h-screen'>Contacto</div>
 
     
 }
 
-export default Contact;
+export default Contact; 

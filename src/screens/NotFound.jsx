@@ -1,5 +1,5 @@
 function NotFound(){
-    return <div>ERROR 404</div>
+    return <div className='min-h-96'>ERROR 404</div>
 
     
 }

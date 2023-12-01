@@ -8,7 +8,9 @@ function Footer(){
                 <img src={Logo} alt="" width={190}/>
                 </div>
                 <p className="font-bold">
-                La Rosé S.A. <br/>Providing reliable tech since 1990
+                La Rosé S.A. <br/> </p> 
+                
+                <p>Your Beauty is Our Duty
                 </p> 
                 
                 <p>Copyright © 2023 - All right reserved</p>
