@@ -112,10 +112,10 @@ function Home(){
            */}
 
            <div className="grid grid-cols-2 gap-0 bg-black min-h-min">
-            <Link to='/categoria/labiales'><img src={ImagenLabios} alt="labiales"  className="w-full h-full object-cover"/></Link>
-            <Link to='/categoria/rostro'><img src={ImagenRostro} alt="rostro" className="w-full h-full object-cover" /></Link>
-            <Link to='/categoria/ojos'><img src={ImagenOjos} alt="ojos"  className="w-full h-full object-cover"/></Link>
-            <Link to='/categoria/skin'><img src={ImagenSkin} alt="skincare" className="w-full h-full object-cover"/></Link>
+            <Link to='/categoria/labiales'><img src={ImagenLabios} alt="labiales"  className="w-full h-full object-cover transition-transform transform hover:filter hover:brightness-125"/></Link>
+            <Link to='/categoria/rostro'><img src={ImagenRostro} alt="rostro" className="w-full h-full object-cover transition-transform transform hover:filter hover:brightness-125" /></Link>
+            <Link to='/categoria/ojos'><img src={ImagenOjos} alt="ojos"  className="w-full h-full object-cover transition-transform transform hover:filter hover:brightness-125"/></Link>
+            <Link to='/categoria/skin'><img src={ImagenSkin} alt="skincare" className="w-full h-full object-cover transition-transform transform hover:filter hover:brightness-125"/></Link>
            </div>
 
            <h3>DESTACADOS DE LA SEMANA</h3>
@@ -125,11 +125,12 @@ function Home(){
            ):(
             <ul className="flex flex-wrap gap-6">
                 {items.map(item=>(
-                    <li key={item.id}>
+                    <li key={item.id} className="transition-transform transform hover:filter hover:brightness-75">
+                        <h3 >{item.name}</h3>
                         <Link to={`/detalle/${item.id}`}>
-                        <h3>{item.name}</h3>
-                        <img src={item.url} alt={item.name} width={400}/>
+                        <img src={item.url} alt={item.name} width={400} />
                         </Link>
+                        <p>$ {item.precio}</p>
                    
                     </li>
                 ))}
