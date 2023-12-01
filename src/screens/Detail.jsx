@@ -29,18 +29,22 @@ function Detail(){
  
 
 
-    return <div className='grid grid-cols-2 min-h-screen '>
-                <div >
-                   
-                    <img src={item.url} alt={item.name} width={400}/>
+    return <div className=' min-h-screen '>
+         
+                    <div className="flex flex-row  bg-red-100 shadow-xl">
+                        <div className='basis-2/3 m-10'>
+                            <img src={item.url} alt={item.name} width={600}/>
+                        </div>
+                        <div className="card-body  basis-1/3 m-10 " >
+                            <h2 className="card-title">{item.name}</h2>
+                            <p className='h-10'>{item.description}</p>
+                            <div className="card-actions justify-start">
+                            <ItemCounter id={item.id}/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              
-                <div>
-                    <h3 >{item.name}</h3>
-                    <p>{item.description}</p>
-                    <ItemCounter id={item.id}/>
-                </div>
-            </div>
+         
 
     
 }

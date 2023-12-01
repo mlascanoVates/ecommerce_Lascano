@@ -36,19 +36,22 @@ function ItemCounter({ id }) {
       <div className="flex flex-col justify-center">
         <form onSubmit={handleSubmit} action="">
           <div className="flex flex-col justify-center">
+            <div>
+              <input
+                type="number"
+                min="0"
+                value={counter}
+                onChange={handleInputChange}
+                className=" self-center bg-white text-black border-2 border-solid border-gray-400 rounded-md h-10 w-32 text-center "
+              />
+              <button  type="submit" onClick={handleAddCounter}  className="p-px m-1  bg-gray-400  border-2 border-solid border-gray-400 transition-transform transform hover:filter hover:brightness-125">
+                Añadir al carrito
+              </button>
+
+            </div>
+            
         
-            <input
-              type="number"
-              min="0"
-              value={counter}
-              onChange={handleInputChange}
-              className=" self-center bg-white text-black border-2 border-solid border-gray-400 rounded-md h-10 w-20 text-center"
-            />
-            <button type="submit" onClick={handleAddCounter}>
-              Añadir al carrito
-            </button>
-        
-          <button>
+          <button className="p-px  mt-1  border-solid border-gray-400 border-2 bg-gray-400 transition-transform transform hover:filter hover:brightness-125">
             <Link to="/cart">Finaliza compra</Link>
           </button>
           </div>

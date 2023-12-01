@@ -104,12 +104,8 @@ function Home(){
 
  /*    const {items, setItems}= useContext(CartContext);
  */
-    return <div>
-       {/*  <h3>{items}</h3>
-            <button onClick={()=> setItems((prev) => prev +1 )}>+</button>
-            <button onClick={()=> setItems((prev) => prev -1 )}>-</button> */}
-           {/*  <img src={item.url}  alt=""  width={200}/>
-           */}
+    return <div >
+     
 
            <div className="grid grid-cols-2 gap-0 bg-black min-h-min">
             <Link to='/categoria/labiales'><img src={ImagenLabios} alt="labiales"  className="w-full h-full object-cover transition-transform transform hover:filter hover:brightness-125"/></Link>
@@ -118,7 +114,8 @@ function Home(){
             <Link to='/categoria/skin'><img src={ImagenSkin} alt="skincare" className="w-full h-full object-cover transition-transform transform hover:filter hover:brightness-125"/></Link>
            </div>
 
-           <h3>DESTACADOS DE LA SEMANA</h3>
+           <div > 
+           <h3 className="flex justify-center ">Los más vendidos</h3>
            {loading?(
             <span className="loading loading-ring loading-lg"></span>
             
@@ -136,6 +133,9 @@ function Home(){
                 ))}
             </ul>
            )}
+
+           </div>
+           
          </div> 
 
     
