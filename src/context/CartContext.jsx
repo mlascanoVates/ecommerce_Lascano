@@ -56,7 +56,7 @@ export function CartProvider({ children }) {
         // throw New Error`
       });
 
-      const itemsData = await Promise.all(promises);
+      const itemsData = await Promise.allSettled(promises);
       setCartItems(itemsData);
     } catch (error) {
       console.error(error);
