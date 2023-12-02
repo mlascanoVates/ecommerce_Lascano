@@ -17,4 +17,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 //funcion que importamos en proyecto de react
-export const firestoreInit=()=> app;
+export const firestoreInit = ()=> app;

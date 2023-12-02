@@ -4,35 +4,24 @@ import { CartContext } from "../context/CartContext";
 import Form from "../components/Form";
 
 function Cart() {
-  const {cart, cartItems, fetchCartItems, emptyCart  } = useContext(CartContext);
+  const {cart, cartItems, fetchCartItems, emptyCart, removeItem } = useContext(CartContext);
 
-  console.log(cart);
+  console.log(cartItems);
 
   useEffect(()=> {
     if(cart.length > 0) {
       fetchCartItems()
     }
-  }, [cart]) 
+  }, [])
 
   return (
     <div>
-  {/*     {cartItems?.map(item => (
+      {cartItems?.map(item => (
         <div className="flex items-center justify-center">
         <p>{item.name}</p>
-{/*         <img src={item.url} alt="" />
-         {/* <button onClick={()=> removeItem(item.id)}>🗑️</button> 
+        <button onClick={()=> removeItem(item.id)}>🗑️</button>
         </div>
-      ))} */}
-
-      {cartItems?.map(item =>{return(
-         <div>
-          <p>{item.name}</p>
-         <img src={item.url} alt="" />
-        </div>
-         
-         )}
-
-      )}
+      ))}
       <button onClick={emptyCart}>Vaciar carrito</button>
       <Form />
     </div>
