@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { collection,getFirestore, query,where,limit, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Product from "../components/Product";
 
 function Category(){
     //se almacena lo que hay en el parámetro
@@ -40,17 +41,7 @@ function Category(){
             <span className="loading loading-ring loading-lg"></span>
             
            ):(
-            <ul className="flex flex-wrap gap-6">
-                {items.map(item=>(
-                    <li key={item.id}>
-                        <Link to={`/detalle/${item.id}`}>
-                        <h3>{item.name}</h3>
-                        <img src={item.url} alt={item.name} width={400}/>
-                        </Link>
-                   
-                    </li>
-                ))}
-            </ul>
+            <Product items={items}/>
            )}
 
 

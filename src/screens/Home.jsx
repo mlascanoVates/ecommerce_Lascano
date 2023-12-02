@@ -6,7 +6,7 @@ import ImagenRostro from '../assets/rostro3.jpg'
 import ImagenLabios from '../assets/labiales2.jpg'
 import ImagenOjos from '../assets/ojos.jpg'
 import ImagenSkin from '../assets/skin2.jpg'
-
+import Product from '../components/Product'
 
 
 function Home(){
@@ -120,18 +120,7 @@ function Home(){
             <span className="loading loading-ring loading-lg"></span>
             
            ):(
-            <ul className="flex flex-wrap gap-6">
-                {items.map(item=>(
-                    <li key={item.id} className="transition-transform transform hover:filter hover:brightness-75">
-                        <h3 >{item.name}</h3>
-                        <Link to={`/detalle/${item.id}`}>
-                        <img src={item.url} alt={item.name} width={400} />
-                        </Link>
-                        <p>$ {item.precio}</p>
-                   
-                    </li>
-                ))}
-            </ul>
+                <Product items={items} />
            )}
 
            </div>

@@ -22,12 +22,9 @@ function Detail(){
                 setItem( {id: res.id, ...res.data()})
             }
             })
-        
-
 
     },[])
  
-
 
     return <div className=' min-h-screen '>
          

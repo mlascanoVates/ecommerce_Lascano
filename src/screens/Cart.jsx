@@ -24,7 +24,15 @@ function Cart() {
         </div>
       ))} */}
 
-      {cartItems?.map(item => <p>{item.name}</p>)}
+      {cartItems?.map(item =>{return(
+         <div>
+          <p>{item.name}</p>
+         <img src={item.url} alt="" />
+        </div>
+         
+         )}
+
+      )}
       <button onClick={emptyCart}>Vaciar carrito</button>
       <Form />
     </div>

@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
+import { useEffect, useState, useContext } from 'react'
+import { CartContext } from '../context/CartContext';
 import Logo from '../assets/logo_laRose.jpeg'
 import CartComponent from '../components/CartComponent'
-import { useEffect, useState } from 'react'
 
 function NavBar(){
+
+    const {itemsInCart, totalPrice} = useContext(CartContext);
   /*   const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
@@ -20,7 +23,7 @@ function NavBar(){
     <div className="navbar bg-black flex  justify-between text-white">
        
             <div className="basis-1/4 justify-center mb-2">
-            <img src={Logo} alt="" width={190}/>
+            <NavLink to='/'><img src={Logo} alt="" width={190}/> </NavLink>
             </div>
             <div className='basis-1/2 justify-center'>
                 {/* propiedad hidden cuando alcanza cierto tamaño  */}
@@ -61,35 +64,14 @@ function NavBar(){
                 </div>
                 <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
                 <div className="card-body">
-                    <span className="font-bold text-lg">6 Items</span>
-                    <span className="text-info">Subtotal: $999</span>
+                    <span className="font-bold text-lg">{itemsInCart} Items</span>
+                    <span className="text-info text-rose-500">Subtotal: ${totalPrice}</span>
                     <div className="card-actions">
-                    <button className="btn btn-primary btn-block">View cart</button>
+                    <button className="btn btn-block bg-red-200"><Link to='/cart'>Finalizar la compra </Link> </button>
                     </div>
                 </div>
                 </div>
             </div>
-
-
-
-            <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                </div>
-                </div>
-                <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li>
-                    <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                    </a>
-                </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
-                </ul>
-            </div>
-           
 
 
         </div>
